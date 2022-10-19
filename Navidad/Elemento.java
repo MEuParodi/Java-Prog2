@@ -1,22 +1,33 @@
-package Navidad;
+package SistemaElectoral;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public abstract class Elemento {
 	
-	// 2. Dado un buzón, provincia o país, conocer la cantidad de cartas recibidas que piden un Determinado regalo
-	public abstract int contarCartasConRegalo(String regalo);
-
 	
-	//1. Dado un buzón, provincia o país, conocer el porcentaje de cartas recibidas que piden un determinado regalo.
-	// ESTO ES UN TEMPLATE, METODO CONCRETO QUE USA LOS ABSTRACTOS
-	public double calcularPorcentaje(String regalo) {
-		return (contarCartasConRegalo(regalo) / contarCartas() * 100);
+	protected ArrayList<Candidato> candidatos; 
+	
+	public Elemento() {
+		candidatos  = new ArrayList<>();
+	}
+	
+	public abstract double pjeVotosCandidato(Candidato c); // al de votos en blanco aca le mando null como parametro
+	
+	public abstract int cantVotosEntre(LocalDate inicio, LocalDate fin);
+	
+	public abstract int cantVotos();
+	
+	public ArrayList<Candidato> listarOrdenado(Comparator comp){
+		ArrayList<Candidato> lista = new ArrayList<>(candidatos);
+		Collections.sort(lista, comp);
+		return lista;
 	}
 	
 	
-	//3. Dado un buzón, provincia o país, conocer la cantidad de niños malos que enviaron una carta.
-	public abstract int contarCartasNenesMalos();
 	
-	// 4. Dado un buzón, provincia o país, conocer la cantidad de total de cartas recibidas.
-	public abstract int contarCartas();
 	
+
 }

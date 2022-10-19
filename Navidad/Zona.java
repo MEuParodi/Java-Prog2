@@ -1,40 +1,43 @@
-package Navidad;
+package SistemaElectoral;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Zona extends Elemento {
 	private ArrayList<Elemento> elementos;
 	
 	public Zona() {
-		this.elementos = new ArrayList<>();
+		elementos = new ArrayList<>();
 	}
 
-	public void addElemento(Elemento e) {
-		this.elementos.add(e);
+	
+	public void add(Elemento elemento) {
+		this.elementos.add(elemento);
 	}
 	
+	
 	@Override
-	public int contarCartasConRegalo(String regalo) {
+	public double pjeVotosCandidato(Candidato c) { /// ver como hacer matematicamente
+		int pj = 0;
+			for(Elemento e : elementos)
+				  pj += e.pjeVotosCandidato(c) * e.cantVotos()/this.cantVotos();
+		return (pj);
+	}
+
+	@Override
+	public int cantVotosEntre(LocalDate inicio, LocalDate fin) {
 		int cont = 0;
-		for (Elemento e: elementos)
-			cont += e.contarCartasConRegalo(regalo);
+		for(Elemento e: elementos)
+			cont += e.cantVotosEntre(inicio, fin);
 		return cont;
 	}
 
 	@Override
-	public int contarCartasNenesMalos() {
-		int cont = 0;
-		for (Elemento e: elementos)
-		cont += e.contarCartasNenesMalos();
-		return cont;
-	}
-
-	@Override
-	public int contarCartas() {
-		int cont = 0;
-		for (Elemento e: elementos)
-			cont += e.contarCartas();
-		return cont;
+	public int cantVotos() {
+		int cant = 0;
+		for(Elemento e: elementos)
+			cant += e.cantVotos();
+		return cant;
 	}
 
 }
