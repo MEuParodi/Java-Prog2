@@ -9,7 +9,7 @@ public abstract class Elemento {
 	//1. Dado un buzón, provincia o país, conocer el porcentaje de cartas recibidas que piden un determinado regalo.
 	// ESTO ES UN TEMPLATE, METODO CONCRETO QUE USA LOS ABSTRACTOS
 	public double calcularPorcentaje(String regalo) {
-		return contarCartasConRegalo(regalo) / contarCartas() * 100;
+		return (contarCartasConRegalo(regalo) / contarCartas() * 100);
 	}
 	
 	

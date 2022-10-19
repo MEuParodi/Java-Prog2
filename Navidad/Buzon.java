@@ -13,8 +13,9 @@ public class Buzon extends Elemento {
 	}
 	
 	public void addBueno (Nene b) {
-		if(!this.buenos.contains(b))
+		if(!this.buenos.contains(b)) {  //para no agregar si ya eataba
 			this.buenos.add(b);
+		}
 	}
 	
 	public void setRegaloMalo(String s) {   //carbon
@@ -22,12 +23,10 @@ public class Buzon extends Elemento {
 	}
 	
 	public void addCarta (Carta c) {
-		if (buenos.contains(c.getRemitente())){
+		if (!buenos.contains(c.getRemitente()))
 			c.cambiarRegalos(regaloMalo);
-		}else {
-			if (!cartas.contains(c.getRemitente()))
-				this.cartas.add(c);
-		}
+		if (!cartas.contains(c)) 
+			this.cartas.add(c);
 	}
 
 	@Override

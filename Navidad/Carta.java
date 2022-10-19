@@ -3,10 +3,10 @@ package Navidad;
 import java.util.ArrayList;
 
 public class Carta {
-	private String remitente;
+	private Nene remitente;
 	private ArrayList<String> regalos;
 	
-	public Carta(String remit) {
+	public Carta(Nene remit) {
 		this.remitente = remit;
 		this.regalos = new ArrayList<>();
 	}
@@ -15,7 +15,7 @@ public class Carta {
 		this.regalos.add(r);
 	}
 	
-	public String getRemitente() {
+	public Nene getRemitente() {
 		return this.remitente;
 	}
 	
@@ -26,6 +26,12 @@ public class Carta {
 	
 	public boolean tieneRegalo(String regalo) {
 		return this.regalos.contains(regalo);
+		
+		
+	}
+	
+	public String toString() {
+		return this.remitente + " " + this.regalos ;
 	}
 	
 }
