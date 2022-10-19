@@ -22,10 +22,10 @@ public class Buzon extends Elemento {
 	}
 	
 	public void addCarta (Carta c) {
-		if(!buenos.contains(c.getRemitente())){
-				c.cambiarRegalos(regaloMalo);
+		if (buenos.contains(c.getRemitente())){
+			c.cambiarRegalos(regaloMalo);
 		}else {
-			if (!cartas.contains(c))
+			if (!cartas.contains(c.getRemitente()))
 				this.cartas.add(c);
 		}
 	}
@@ -39,7 +39,7 @@ public class Buzon extends Elemento {
 	@Override 
 	public int contarCartasConRegalo(String regalo) {
 		int cont = 0;
-		for (Carta c: cartas)
+		for (Carta c: this.cartas)
 			if (c.tieneRegalo(regalo))
 				cont ++;
 		return cont;
