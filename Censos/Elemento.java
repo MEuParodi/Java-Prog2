@@ -7,6 +7,17 @@ import java.util.Comparator;
 import Censos.Filtros.Filtro;
 
 public abstract class Elemento {
+	
+	private String nombre;
+	
+	
+	public Elemento(String nombre) {
+		this.nombre = nombre;
+	}
+	
+	public String getNombre() {
+		return nombre;
+	}
 
 	public abstract int getQHab();
 	public abstract double getSup();

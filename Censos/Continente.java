@@ -6,11 +6,10 @@ import Censos.Filtros.Filtro;
 
 public class Continente extends Elemento {
 
-	private String nombre;
 	private ArrayList<Elemento> elementos;
 	
 	public Continente(String nombre) {
-		this.nombre = nombre;
+		super(nombre);
 		this.elementos = new ArrayList<>();
 	}
 	
@@ -26,13 +25,6 @@ public class Continente extends Elemento {
 		return cant;
 	}
 
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
 
 	@Override
 	public double getSup() {

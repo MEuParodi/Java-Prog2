@@ -6,27 +6,17 @@ import java.util.Comparator;
 import Censos.Filtros.Filtro;
 
 public class Comarca extends Elemento {
-	private String nombre;
 	private double sup;
 	private int qHabs;
 	private double ingresos;
 	
 	public Comarca(String nombre, double sup, int qHabs, double ingresos) {
-		super();
-		this.nombre = nombre;
+		super(nombre);
 		this.sup = sup;
 		this.qHabs = qHabs;
 		this.ingresos = ingresos;
 	}
 	
-	public String getNombre() {
-		return this.nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
 	public void setSup(double sup) {
 		this.sup = sup;
 	}
